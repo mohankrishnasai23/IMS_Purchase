@@ -22,10 +22,10 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.SR6</spring-cloud.version>
-  		<sonar.projectKey>mohankrishnasai23_IMS_EurekaServer</sonar.projectKey>
- 		<sonar.organization>mohankrishnasai23</sonar.organization>
-  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  		<sonar.login>8f3cfa82ae8e3d278f125c7e95dba120332d8bdc</sonar.login>
+  <sonar.projectKey>mohankrishnasai23_IMS_Purchase</sonar.projectKey>
+  <sonar.organization>mohankrishnasai23</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  <sonar.login>ac88a95ca4783332bf937fdd24eb8aff405eb226</sonar.login>
 	</properties>
 
 		<dependencies>
