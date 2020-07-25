@@ -16,9 +16,6 @@ import com.cts.imsproj.purchase.DAO.CategoryClient;
 import com.cts.imsproj.purchase.entity.Category;
 import com.cts.imsproj.purchase.entity.RawMaterials;
 import com.cts.imsproj.purchase.service.RawService;
-
-import io.swagger.annotations.Api;
-@Api
 @RestController
 @RequestMapping("/api")
 public class RawController {
