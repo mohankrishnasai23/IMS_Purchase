@@ -2,10 +2,12 @@ package com.cts.imsproj.purchase.service;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cts.imsproj.purchase.DAO.RawRepoImpl;
+import com.cts.imsproj.purchase.dto.RawMaterialsDto;
 import com.cts.imsproj.purchase.entity.RawMaterials;
 
 @Service
@@ -21,15 +23,24 @@ public class RawServiceImpl implements RawService{
 		return list;
 	}
 
-	public RawMaterials addRaw(RawMaterials r) {
-		RawMaterials rm = rp.addRaw(r);
-		return rm;
+	@Override
+	public RawMaterialsDto addRaw(RawMaterialsDto r) {
+		RawMaterials rm = new RawMaterials();
+		BeanUtils.copyProperties(r, rm);
+		
+		RawMaterials rm1 = rp.addRaw(rm);
+		BeanUtils.copyProperties(rm1, r);
+		
+		return r;
 	}
 
 	@Override
-	public RawMaterials updateRaw(RawMaterials r) {
-		RawMaterials rm = rp.updateRaw(r);
-		return rm;
+	public RawMaterialsDto updateRaw(RawMaterialsDto r) {
+		RawMaterials rm = new RawMaterials();
+		BeanUtils.copyProperties(r, rm);
+		RawMaterials rm1 = rp.updateRaw(rm);
+		BeanUtils.copyProperties(rm1, r);
+		return r;
 	}
 
 	@Override
@@ -39,7 +50,4 @@ public class RawServiceImpl implements RawService{
 		
 	}
 	
-	/*
-	 * public RawMaterials addRaw(RawMaterials rm) { RawMaterials rm = }
-	 */
 }

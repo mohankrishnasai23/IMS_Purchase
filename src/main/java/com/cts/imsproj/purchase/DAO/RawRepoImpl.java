@@ -11,31 +11,31 @@ import com.cts.imsproj.purchase.entity.RawMaterials;
 public class RawRepoImpl {
 
 	@Autowired
-	private RawRepo rp;
+	private RawRepo repo;
 	
 	public List<RawMaterials> getAll(){
 		
-		List<RawMaterials> list = rp.findAll();
+		List<RawMaterials> list = repo.findAll();
 		
 		return list;
 	}
 
 	public RawMaterials addRaw(RawMaterials r) {
 		
-		RawMaterials rm = rp.save(r);
+		RawMaterials rm = repo.save(r);
 		
 		return rm;
 	}
 
 	public RawMaterials updateRaw(RawMaterials r) {
 
-		RawMaterials rm = rp.save(r);
+		RawMaterials rm = repo.saveAndFlush(r);
 		return rm;
 	}
 
 	public void deleteRaw(int id) {
-		if(rp.findById(id).isPresent()) {
-		rp.deleteById(id);
+		if(repo.findById(id).isPresent()) {
+			repo.deleteById(id);
 		}
 	}
 }

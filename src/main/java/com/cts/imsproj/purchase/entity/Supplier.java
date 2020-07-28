@@ -26,9 +26,8 @@ public class Supplier implements Serializable {
 	private int supplierContact;
 
 	private String supplierName;
-
-	public Supplier() {
-	}
+	
+	private int qnty;
 
 	public int getSupplierId() {
 		return this.supplierId;
@@ -60,6 +59,14 @@ public class Supplier implements Serializable {
 
 	public void setSupplierName(String supplierName) {
 		this.supplierName = supplierName;
+	}
+
+	public int getQnty() {
+		return qnty;
+	}
+
+	public void setQnty(int qnty) {
+		this.qnty = qnty;
 	}
 
 }

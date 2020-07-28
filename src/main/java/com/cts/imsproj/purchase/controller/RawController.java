@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cts.imsproj.purchase.DAO.CategoryClient;
+import com.cts.imsproj.purchase.dto.RawMaterialsDto;
 import com.cts.imsproj.purchase.entity.Category;
 import com.cts.imsproj.purchase.entity.RawMaterials;
 import com.cts.imsproj.purchase.service.RawService;
+
+import io.swagger.annotations.Api;
+@Api("Describes the RawController")
 @RestController
 @RequestMapping("/api")
 public class RawController {
@@ -35,15 +39,15 @@ public class RawController {
 	}
 
 	@PostMapping("/add")
-	public RawMaterials addRawMaterials(@RequestBody RawMaterials r) {
-		RawMaterials rm = rs.addRaw(r);
+	public RawMaterialsDto addRawMaterials(@RequestBody RawMaterialsDto r) {
+		RawMaterialsDto rm = rs.addRaw(r);
 		return rm;
 	}
 
 	@PutMapping("/update")
-	public RawMaterials updateRawMaterials(@RequestBody RawMaterials r) {
+	public RawMaterialsDto updateRawMaterials(@RequestBody RawMaterialsDto r) {
 
-		RawMaterials rm = rs.updateRaw(r);
+		RawMaterialsDto rm = rs.updateRaw(r);
 
 		return rm;
 	}

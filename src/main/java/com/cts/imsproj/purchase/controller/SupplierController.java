@@ -31,6 +31,7 @@ public class SupplierController {
         return supplierService.findById(id);
     }
 
+    //@PreAuthorize(value = "sai")
     @RequestMapping(method = RequestMethod.POST, value = "/add")
     public Supplier addSupplier(@RequestBody Supplier supplier) {
         supplierService.insert(supplier);
@@ -43,6 +44,7 @@ public class SupplierController {
         return supplier;
     }
 
+    //@PreAuthorize(value = "USER")
     @RequestMapping(method = RequestMethod.DELETE,value ="delete/{id}")
     public String deleteSupplier(@PathVariable int id) throws SupplierNotFoundException{
     	supplierService.deleteSupplier(id);

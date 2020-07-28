@@ -15,23 +15,21 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
-@EnableSwagger2
+@EnableSwagger2 
 public class ImsPurchasingDeptApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ImsPurchasingDeptApplication.class, args);
 	}
-
+	
 	@Bean
-	public Docket swaggerConfiguration() {
+	public Docket api() {
 
-		/* return new *//*
-						 * Docket(DocumentationType.SWAGGER_2) .select()
-						 * .paths(PathSelectors.ant("/api/*"))
-						 * .apis(RequestHandlerSelectors.basePackage("com.cts.imsproj.purchase")).build(
-						 * );
-						 */
-		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.cts.imsproj.purchase")).build();
-	}
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		return new Docket(DocumentationType.SWAGGER_2)  
+		          .select()                                  
+		          .apis(RequestHandlerSelectors.basePackage("com.cts"))              
+		          .paths(PathSelectors.any())                          
+		          .build();
+		}
 }
