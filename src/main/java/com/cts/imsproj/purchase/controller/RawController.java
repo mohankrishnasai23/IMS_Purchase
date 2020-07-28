@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cts.imsproj.purchase.DAO.CategoryClient;
+import com.cts.imsproj.purchase.dao.CategoryClient;
 import com.cts.imsproj.purchase.dto.RawMaterialsDto;
 import com.cts.imsproj.purchase.entity.Category;
 import com.cts.imsproj.purchase.entity.RawMaterials;
@@ -40,16 +40,13 @@ public class RawController {
 
 	@PostMapping("/add")
 	public RawMaterialsDto addRawMaterials(@RequestBody RawMaterialsDto r) {
-		RawMaterialsDto rm = rs.addRaw(r);
-		return rm;
+		return rs.addRaw(r);
 	}
 
 	@PutMapping("/update")
 	public RawMaterialsDto updateRawMaterials(@RequestBody RawMaterialsDto r) {
 
-		RawMaterialsDto rm = rs.updateRaw(r);
-
-		return rm;
+		return rs.updateRaw(r);
 	}
 
 	@DeleteMapping("/delete/{id}")
@@ -62,8 +59,7 @@ public class RawController {
 	
 	@GetMapping("/getCategories")
 	public List<Category> getAllCategory(){
-		List<Category> list = client.getAllCategory();
-		return list;
+		return client.getAllCategory();
 	}
 
 }

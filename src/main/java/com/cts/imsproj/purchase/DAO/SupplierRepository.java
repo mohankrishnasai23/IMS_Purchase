@@ -1,4 +1,4 @@
-package com.cts.imsproj.purchase.DAO;
+package com.cts.imsproj.purchase.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

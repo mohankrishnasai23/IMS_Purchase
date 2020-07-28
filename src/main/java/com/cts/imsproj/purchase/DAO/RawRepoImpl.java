@@ -1,4 +1,4 @@
-package com.cts.imsproj.purchase.DAO;
+package com.cts.imsproj.purchase.dao;
 
 import java.util.List;
 

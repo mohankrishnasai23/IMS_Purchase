@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.cts.imsproj.purchase.DAO.SupplierRepository;
+import com.cts.imsproj.purchase.dao.SupplierRepository;
 import com.cts.imsproj.purchase.entity.Supplier;
 
 @SpringBootTest

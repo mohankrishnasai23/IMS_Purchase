@@ -4,7 +4,10 @@ package com.cts.imsproj.purchase.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,21 +34,19 @@ public class SupplierController {
         return supplierService.findById(id);
     }
 
-    //@PreAuthorize(value = "sai")
-    @RequestMapping(method = RequestMethod.POST, value = "/add")
+    @PostMapping("/add")
     public Supplier addSupplier(@RequestBody Supplier supplier) {
         supplierService.insert(supplier);
         return supplier;
     }
 
-    @RequestMapping(method = RequestMethod.PUT,value ="/update")
+    @PutMapping("/update")
     public Supplier updateSupplier(@RequestBody Supplier supplier) throws SupplierNotFoundException{
         supplierService.updateSupplier(supplier);
         return supplier;
     }
 
-    //@PreAuthorize(value = "USER")
-    @RequestMapping(method = RequestMethod.DELETE,value ="delete/{id}")
+    @DeleteMapping("delete/{id}")
     public String deleteSupplier(@PathVariable int id) throws SupplierNotFoundException{
     	supplierService.deleteSupplier(id);
     	return "Deleted Successfully";

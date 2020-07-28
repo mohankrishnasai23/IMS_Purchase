@@ -6,7 +6,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.imsproj.purchase.DAO.RawRepoImpl;
+import com.cts.imsproj.purchase.dao.RawRepoImpl;
 import com.cts.imsproj.purchase.dto.RawMaterialsDto;
 import com.cts.imsproj.purchase.entity.RawMaterials;
 
