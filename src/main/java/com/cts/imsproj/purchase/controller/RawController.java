@@ -33,9 +33,7 @@ public class RawController {
 	@GetMapping("/getall")
 	public List<RawMaterials> getAll() {
 
-		List<RawMaterials> l = rs.getAll();
-
-		return l;
+		return rs.getAll();
 	}
 
 	@PostMapping("/add")
