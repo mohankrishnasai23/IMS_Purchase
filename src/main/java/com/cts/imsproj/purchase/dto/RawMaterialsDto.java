@@ -2,15 +2,12 @@ package com.cts.imsproj.purchase.dto;
 
 import java.io.Serializable;
 
-import org.springframework.stereotype.Component;
-
 import com.cts.imsproj.purchase.entity.Supplier;
 
 /**
- * The DTO class for the RawMaterials .
+ * The DTO class for RawMaterials .
  * 
  */
-@Component
 public class RawMaterialsDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -18,6 +15,7 @@ public class RawMaterialsDto implements Serializable {
 	private String name;
 	private String location;
 	private double price;
+	private Supplier supplier;
 	public int getId() {
 		return id;
 	}
@@ -48,5 +46,13 @@ public class RawMaterialsDto implements Serializable {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
 	}
 }

@@ -17,6 +17,8 @@ public interface RawService {
 	public RawMaterialsDto updateRaw(RawMaterialsDto r);
 
 	public void deleteRaw(int id);
+	
+	//public void updateQty();
 
 	
 }

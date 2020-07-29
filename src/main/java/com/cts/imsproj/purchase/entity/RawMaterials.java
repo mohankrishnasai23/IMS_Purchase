@@ -28,6 +28,14 @@ public class RawMaterials implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="supplierId")
 	private Supplier supplier;
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
 	public int getId() {
 		return id;
 	}

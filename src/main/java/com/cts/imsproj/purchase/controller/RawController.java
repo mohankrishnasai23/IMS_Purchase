@@ -16,17 +16,19 @@ import com.cts.imsproj.purchase.dao.CategoryClient;
 import com.cts.imsproj.purchase.dto.RawMaterialsDto;
 import com.cts.imsproj.purchase.entity.Category;
 import com.cts.imsproj.purchase.entity.RawMaterials;
+import com.cts.imsproj.purchase.entity.Supplier;
 import com.cts.imsproj.purchase.service.RawService;
 
 import io.swagger.annotations.Api;
+
 @Api("Describes the RawController")
 @RestController
 @RequestMapping("/api")
 public class RawController {
-	
+
 	@Autowired
 	RawService rs;
-	
+
 	@Autowired
 	CategoryClient client;
 
@@ -54,10 +56,9 @@ public class RawController {
 
 		return "Deleted Successfully";
 	}
-	
+
 	@GetMapping("/getCategories")
-	public List<Category> getAllCategory(){
+	public List<Category> getAllCategory() {
 		return client.getAllCategory();
 	}
-
 }
