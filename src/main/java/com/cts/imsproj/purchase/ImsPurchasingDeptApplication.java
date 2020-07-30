@@ -25,7 +25,6 @@ public class ImsPurchasingDeptApplication {
 	@Bean
 	public Docket api() {
 
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		return new Docket(DocumentationType.SWAGGER_2)  
 		          .select()                                  
 		          .apis(RequestHandlerSelectors.basePackage("com.cts"))              
