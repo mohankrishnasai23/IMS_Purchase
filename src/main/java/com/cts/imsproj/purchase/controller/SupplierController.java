@@ -41,7 +41,7 @@ public class SupplierController {
      * @throws PurchaseDepartmentException
      */
     @GetMapping("/getall")
-    public Iterable<Supplier> getAllSupplier() throws PurchaseDepartmentException{
+    public Iterable<Supplier> getAllSupplier() {
     	logger.info("Triggered findAll Method");
         return supplierService.findAll();
     }
