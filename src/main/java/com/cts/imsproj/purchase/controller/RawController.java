@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cts.imsproj.purchase.dao.CategoryClient;
+/*import com.cts.imsproj.purchase.dao.CategoryClient;*/
 import com.cts.imsproj.purchase.dto.RawMaterialsDto;
 import com.cts.imsproj.purchase.entity.Category;
 import com.cts.imsproj.purchase.entity.RawMaterials;
@@ -38,8 +38,9 @@ public class RawController {
 	@Autowired
 	RawService rs;
 
-	@Autowired
-	CategoryClient client;
+	/*
+	 * @Autowired CategoryClient client;
+	 */
 
 	/**
 	 * @return list of Rawmaterials
@@ -92,8 +93,8 @@ public class RawController {
 		return "Deleted Successfully";
 	}
 
-	@GetMapping("/getCategories")
-	public List<Category> getAllCategory() {
-		return client.getAllCategory();
-	}
+	/*
+	 * @GetMapping("/getCategories") public List<Category> getAllCategory() { return
+	 * client.getAllCategory(); }
+	 */
 }

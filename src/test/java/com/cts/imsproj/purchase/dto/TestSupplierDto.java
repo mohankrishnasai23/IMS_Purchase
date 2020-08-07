@@ -1,23 +1,28 @@
 package com.cts.imsproj.purchase.dto;
 
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class TestSupplierDto {
 	
 	@Test
 	public void setSupplierId() {
 		SupplierDto dto = new SupplierDto();
 		dto.setQnty(11);
-		assertTrue(dto.getQnty()==11);
+		assertEquals(dto.getQnty(),11);
 	}
 	
 	@Test
 	public void getSupplierId() {
 		SupplierDto dto = new SupplierDto();
 		dto.setQnty(11);
-		assertTrue(dto.getQnty()==11);
+		assertEquals(dto.getQnty(),11);
 	}
 	
 	@Test
@@ -38,14 +43,14 @@ public class TestSupplierDto {
 	public void setSupplierContact() {
 		SupplierDto dto = new SupplierDto();
 		dto.setSupplierContact(9440);
-		assertTrue(dto.getSupplierContact()==9440);
+		assertEquals(dto.getSupplierContact(),9440);
 	}
 	
 	@Test
 	public void getSupplierContact() {
 		SupplierDto dto = new SupplierDto();
 		dto.setSupplierContact(9440);
-		assertTrue(dto.getSupplierContact()==9440);
+		assertEquals(dto.getSupplierContact(), 9440);
 	}
 	
 	@Test
@@ -66,6 +71,6 @@ public class TestSupplierDto {
 	public void setSupplierQty() {
 		SupplierDto dto = new SupplierDto();
 		dto.setQnty(1);
-		assertTrue(dto.getQnty()==1);
+		assertEquals(dto.getQnty(),1);
 	}
 }

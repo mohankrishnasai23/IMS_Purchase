@@ -1,53 +1,94 @@
 package com.cts.imsproj.purchase.controller;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mockito;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import com.cts.imsproj.purchase.dto.RawMaterialsDto;
+import com.cts.imsproj.purchase.entity.Category;
 import com.cts.imsproj.purchase.entity.RawMaterials;
+import com.cts.imsproj.purchase.entity.Supplier;
 import com.cts.imsproj.purchase.service.RawService;
 
-//@RunWith(SpringRunner.class)
-@WebMvcTest(value=RawController.class)
 public class RawContollerTest {
 
-	@Autowired
-	private MockMvc mockMvc;
-	@Autowired
-	private RawService service;
-	
 	@InjectMocks
-	RawController controller;
+	private RawController rawController;
+	@Mock
+	private RawService rs;
+	/*
+	 * @Mock private CategoryClient client;
+	 */
 	
-	public void init() {
-	    MockitoAnnotations.initMocks(this);
+	@Before
+	public void setUp() {
+		MockitoAnnotations.initMocks(this);
 	}
-
-		
+	
 	@Test
-	public void getAllTest() throws Exception {
-		Mockito.when(service.getAll()).thenReturn(getAllRawMaterials());
-		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/getall").accept(MediaType.APPLICATION_JSON)).andReturn();
-		System.out.println(mvcResult.getResponse());
-		verify(service).getAll();
+	public void testGetAll() {
+		List<RawMaterials> rawMaterials = new ArrayList<>();
+		when(rs.getAll()).thenReturn(rawMaterials);
+		List<RawMaterials> actualRawMaterials = rawController.getAll();
+		assertEquals(rawMaterials, actualRawMaterials);
 	}
 	
-	private List<RawMaterials> getAllRawMaterials() {
-		List<RawMaterials> l=new ArrayList<RawMaterials>();
-		l.add(new RawMaterials());
-		l.add(new RawMaterials());
-		return l;
+	@Test
+	public void testAddRawMaterials() {
+		RawMaterialsDto dto = new RawMaterialsDto();
+		Supplier supplier = new Supplier();
+		supplier.setQnty(1);
+		supplier.setSupplierCompany("mrf");
+		supplier.setSupplierContact(9440);
+		supplier.setSupplierId(100);
+		supplier.setSupplierName("saaa");
+		dto.setId(123);
+		dto.setLocation("hyd");
+		dto.setName("krish");
+		dto.setPrice(1000);
+		dto.setSupplier(supplier);
+		when(rs.addRaw(dto)).thenReturn(dto) ;
+		RawMaterialsDto actualRawMaterialsDto = rawController.addRawMaterials(dto);
+		assertEquals(dto, actualRawMaterialsDto);
 	}
+	
+	@Test
+	public void testUpdateRawMaterials() {
+		RawMaterialsDto dto = new RawMaterialsDto();
+		Supplier supplier = new Supplier();
+		supplier.setQnty(1);
+		supplier.setSupplierCompany("mrf");
+		supplier.setSupplierContact(9440);
+		supplier.setSupplierId(100);
+		supplier.setSupplierName("saaa");
+		dto.setId(123);
+		dto.setLocation("hyd");
+		dto.setName("krish");
+		dto.setPrice(1000);
+		dto.setSupplier(supplier);
+		when(rs.updateRaw(dto)).thenReturn(dto);
+		RawMaterialsDto actualRawMaterialsDto = rawController.updateRawMaterials(dto) ;
+		assertEquals(dto, actualRawMaterialsDto);
+	}
+	
+	@Test
+	public void testDeleteRaw() {
+		assertEquals("Deleted Successfully", rawController.deleteRaw(123));
+		verify(rs).deleteRaw(123);
+	}
+	/*
+	 * @Test public void testGetAllCategory() { List<Category> categories = new
+	 * ArrayList<>(); when(client.getAllCategory()).thenReturn(categories);
+	 * List<Category> actualCategories= rawController.getAllCategory();
+	 * assertEquals(categories, actualCategories); }
+	 */
 }

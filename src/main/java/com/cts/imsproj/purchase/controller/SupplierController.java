@@ -1,6 +1,7 @@
 package com.cts.imsproj.purchase.controller;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -41,9 +42,9 @@ public class SupplierController {
      * @throws PurchaseDepartmentException
      */
     @GetMapping("/getall")
-    public Iterable<Supplier> getAllSupplier() {
+    public List<Supplier> getAllSupplier() {
     	logger.info("Triggered findAll Method");
-        return supplierService.findAll();
+        return (List<Supplier>) supplierService.findAll();
     }
 
     /**
@@ -81,7 +82,7 @@ public class SupplierController {
     }
 
     @DeleteMapping("delete/{id}")
-    public String deleteSupplier(@PathVariable int id) throws PurchaseDepartmentException{
+    public String deleteSupplier(@PathVariable int id) {
     	supplierService.deleteSupplier(id);
     	return "Deleted Successfully";
     }
